@@ -20,7 +20,7 @@ class PodWatcher(retry: PodWatcher => Unit) extends Watcher[Pod] {
   }
 
   def onClose(ex: KubernetesClientException): Unit = {
-    println(s"Watcher closed on $ex")
+    println(s"Watcher closed on ${ex.getMessage}")
     retry(this)
   }
 }
